@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Demo Importer</title>
+	
+	    <!-- build:css assets/app.min.css -->
+		<link rel="stylesheet" href="components/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="components/midata/css/app.css">
+		<!-- endbuild -->
+		
+		<!-- build:js assets/app.min.js -->
+		<script type="text/javascript" src="components/angular/angular.js" defer></script>
+		<script type="text/javascript" src="components/angular-translate/angular-translate.js" defer></script>
+		<script type="text/javascript" src="components/angular-bootstrap/ui-bootstrap-tpls.js" defer></script>		
+		<script type="text/javascript" src="components/midata/js/midata.js" defer></script>
+		<script type="text/javascript" src="i18n.js" defer></script>
+		<script type="text/javascript" src="app.js" defer></script>
+		<script type="text/javascript" src="controller.js" defer></script>
+		<!-- endbuild -->
+	</head>
+	<body>
+	   <div ng-app="demo" ng-controller="MyController" ng-cloak class="container">
+		   <h2 translate="{{ worldVar }}"></h2>
+		   <button ng-click="startImport()" class="btn btn-primary" translate="start_import"></button>
+		   <div class="extraspace"></div>
+		   <p ng-show="status" class="alert alert-info">{{ status }}</p>
+	   </div>
+	</body>
+</html>
