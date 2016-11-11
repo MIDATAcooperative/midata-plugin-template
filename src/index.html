@@ -23,8 +23,12 @@
 	   <div ng-app="demo" ng-controller="MyController" ng-cloak class="container">
 		   <h2 translate="{{ worldVar }}"></h2>
 		   <button ng-click="startImport()" class="btn btn-primary" translate="start_import"></button>
+		   <button ng-click="exampleSearch()" class="btn btn-default" translate="search"></button>		   
+		   <button ng-click="exampleUpdate()" class="btn btn-default" translate="update"></button>
+		   
 		   <div class="extraspace"></div>
 		   <p ng-show="status" class="alert alert-info">{{ status }}</p>
+		   <pre ng-show="result">{{ result | json }}</pre>
 	   </div>
 	</body>
 </html>

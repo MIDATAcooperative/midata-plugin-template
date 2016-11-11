@@ -17,7 +17,7 @@ demo.config(['$translateProvider', 'i18nc', function($translateProvider, i18nc) 
 	.fallbackLanguage('en');
 		
 }]);
-// The data importer
+// An example factory for providing a data import that may run in the browser and automatically from server side
 demo.factory('importer', ['$http' , '$translate', 'midataServer', '$q', function($http, $translate, midataServer, $q) {
 	
 	var importer = {};
@@ -74,20 +74,8 @@ demo.factory('importer', ['$http' , '$translate', 'midataServer', '$q', function
 			  }]
 		};
 		
-		// create the record on the server
-		//var mypromise = midataServer.createRecord(authToken, midataHeader, recordContent);
-		
-		return midataServer.fhirSearch(authToken, "Observation", { code : "3141-9" });
-		
-		/*
-		return midataServer.fhirSearch(authToken, "Observation", {})
-		.then(function(result) {
-			console.log(result);
-			
-			return midataServer.fhirCreate(authToken, recordContent);
-		});
-		*/
-		
+		// create the record on the server using a FHIR transaction				
+		return midataServer.fhirTransaction(authToken, bundle);										
 	
 	};
 			
