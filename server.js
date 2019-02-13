@@ -5,11 +5,11 @@ benv.setup(function () {
 	
   // Load used libraries
   benv.expose({
-    angular: benv.require('./bower_components/angular/angular.min.js', 'angular'),
+    angular: benv.require('angular/angular', 'angular'),
     http : require('http')
   });
-  require('./bower_components/angular-translate/angular-translate.min.js');
-  require('./bower_components/midata/js/midata.js');
+  require('angular-translate');
+  require('angular-midatajs/js/midata');
   require('./src/i18n.js');
   require('./src/app.js');
   
