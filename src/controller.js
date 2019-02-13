@@ -1,5 +1,5 @@
 // The frontend controller
-demo.controller('MyController', ['$scope', '$translate', '$location', 'midataServer', 'midataPortal', 'importer',  
+angular.module('demo').controller('MyController', ['$scope', '$translate', '$location', 'midataServer', 'midataPortal', 'importer',  
 	function($scope, $translate, $location, midataServer, midataPortal, importer) {
 		
 	    // Make layout fit into MIDATA page

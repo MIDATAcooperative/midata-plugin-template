@@ -6,9 +6,9 @@ This template may be used as a starting point for developing a MIDATA portal plu
 Getting started
 ----------------
 1. Clone this repository into a directory on your PC
-2. Run "npm install" and "bower update" in that directory
-3. In "Gruntfile.js" change the plugin name in line 4 from "changeme" into something unique.
-4. Run "grunt server"
+2. Run "npm install" in that directory
+3. In "webpack.development.config.js" change the APP_NAME name in line 19 from "changeme" into something unique.
+4. Run "npm dev:server"
 5. Open the plugin in your browser at URL https://localhost:9004/changeme/dist  (change "changeme" into your plugin name)
    Your browser should complain about the SSL certificate. Add a security exception. This is important for later.
    If it worked you should see "Hello World" in your browser.
@@ -20,7 +20,7 @@ Getting started
    "Name", "Description", "Tile Name" : Fill out as you wish
    "URL" should be: dist/index.html#?authToken=:authToken 
    "Default Dashboard" : "me"
-   "Access Query (JSON)" : { format : ["fhir/Observation"] }
+   "Data Access Filter" : Add body weight for this example
 8. Choose your plugin in the portal and click on "Install from localhost"
 9. Click on "Sandbox" at the top of the screen
 10. There should be a tile for your plugin. Click on "view" in that tile. 
