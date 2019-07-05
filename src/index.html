@@ -6,7 +6,7 @@
 	
 	</head>
 	<body>
-	   <div ng-app="demo" ng-controller="MyController" ng-cloak class="container">
+	   <div ng-app="demo" ng-controller="MyController" ng-cloak class="container" ng-csp="no-unsafe-eval">
 		   <h2 translate="{{ worldVar }}"></h2>
 		   <button ng-click="startImport()" class="btn btn-primary" translate="start_import"></button>
 		   <button ng-click="exampleSearch()" class="btn btn-default" translate="search"></button>		   

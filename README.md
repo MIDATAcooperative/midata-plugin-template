@@ -8,7 +8,7 @@ Getting started
 1. Clone this repository into a directory on your PC
 2. Run "npm install" in that directory
 3. In "webpack.development.config.js" change the APP_NAME name in line 19 from "changeme" into something unique.
-4. Run "npm dev:server"
+4. Run "npm run dev:server"
 5. Open the plugin in your browser at URL https://localhost:9004/changeme/dist  (change "changeme" into your plugin name)
    Your browser should complain about the SSL certificate. Add a security exception. This is important for later.
    If it worked you should see "Hello World" in your browser.
@@ -18,7 +18,7 @@ Getting started
    "Internal Name" must be what you have chosen as plugin name during point 3)
    "Type" should be: Visualization
    "Name", "Description", "Tile Name" : Fill out as you wish
-   "URL" should be: dist/index.html#?authToken=:authToken 
+   "URL" should be: dist/index.html#!?authToken=:authToken 
    "Default Dashboard" : "me"
    "Data Access Filter" : Add body weight for this example
 8. Choose your plugin in the portal and click on "Install from localhost"

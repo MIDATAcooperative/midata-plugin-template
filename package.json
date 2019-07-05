@@ -4,9 +4,9 @@
   "description": "Hello World Demo",
   "main": "server.js",
   "dependencies": {
-    "angular": "~1.5.9",
+    "angular": "~1.7.0",
     "angular-midatajs": "git+https://github.com/MIDATAcooperative/midata-plugin-library.git",
-    "angular-route": "~1.5.9",
+    "angular-route": "~1.7.0",
     "angular-translate": "^2.11.0",
     "angular-ui-bootstrap": "~2.5.0",
     "benv": "~3.3.0",

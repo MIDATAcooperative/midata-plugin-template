@@ -1,3 +1,6 @@
+// This file is used if your plugin is an import plugin that should do automatic imports
+// This file is run on the server in a nodeJS environment, not on the client
+
 // load-angular.js
 var targetServer = process.argv.length > 4 ? process.argv[4] : "http://localhost:9001";
 var benv = require('benv');

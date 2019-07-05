@@ -1,6 +1,6 @@
-var demo = angular.module('demo', [ 'midata', 'pascalprecht.translate', 'demoi18n' ]);
+var demo = angular.module('demo', [ 'midata', 'pascalprecht.translate', 'demoi18n' ])
 // Configuration
-demo.config(['$translateProvider', 'i18nc', function($translateProvider, i18nc) {	    
+.config(['$translateProvider', 'i18nc', function($translateProvider, i18nc) {	    
     
 	$translateProvider
 	.useSanitizeValueStrategy('escape')	   	    
@@ -16,9 +16,22 @@ demo.config(['$translateProvider', 'i18nc', function($translateProvider, i18nc) 
 	.translations('fr', i18nc.fr)
 	.fallbackLanguage('en');
 		
-}]);
+}])
+.run(['$translate', '$location', 'midataPortal', 'midataServer', function($translate, $location, midataPortal, midataServer) {
+	// Use same language as the MIDATA portal
+	$translate.use(midataPortal.language);
+	
+	// Make layout fit into MIDATA page
+    midataPortal.autoresize();
+    
+    // Select FHIR version to be used
+    midataServer.setFhirVersion("4.0");
+    
+    // Provide authorization token
+	midataServer.authToken = $location.search().authToken;	    
+}])
 // An example factory for providing a data import that may run in the browser and automatically from server side
-demo.factory('importer', ['$http' , '$translate', 'midataServer', '$q', function($http, $translate, midataServer, $q) {
+.factory('importer', ['$http' , '$translate', 'midataServer', '$q', function($http, $translate, midataServer, $q) {
 	
 	var importer = {};
 		
@@ -35,14 +48,7 @@ demo.factory('importer', ['$http' , '$translate', 'midataServer', '$q', function
 	// Trigger the import. Must be runnable from webbrowser or from server
 	importer.importNow = function(authToken) {
 		
-		// Lets just create a body weight record on MIDATA
-		// meta information for MIDATA API 
-		var midataHeader = {
-		  name : "Test Record",
-		  format : "fhir/Observation",
-		  subformat : "Quantity",
-		  code : "http://loinc.org 3141-9",		  
-		};
+		// Lets just create a body weight record on MIDATA		
 		
 		// FHIR record content
 		var recordContent = {
@@ -54,8 +60,7 @@ demo.factory('importer', ['$http' , '$translate', 'midataServer', '$q', function
 		  code: { 
 			  coding: [ { system: "http://loinc.org", code: "3141-9", display: "Body - Weight" } ]
 		  }, 
-		  effectiveDateTime: "2016-05-01", 
-		  subject : { reference : "Device/abcd", display : "Test" },
+		  effectiveDateTime: "2016-05-01", 		  
 		  valueQuantity: { 
 			  value: 81.0, 
 			  unit: "kg" 
