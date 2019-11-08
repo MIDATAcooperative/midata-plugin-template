@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const My_Definitions = require('./webpack.definitions');
 
@@ -23,7 +23,7 @@ var CLIENT_IMAGES = path.resolve(CLIENT_DIR, "assets" , "images");
  * Prepare the plugins
  */
 var My_Plugins = [
-    new CleanWebpackPlugin([DIST_DIR]),
+    new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
         { from: CLIENT_IMAGES, to: DIST_DIR }
     ]),
